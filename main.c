@@ -29,7 +29,7 @@ int main(int argc, char** argv) {
     int t,res;
     arr = createArray();
     assert(arr != NULL);
-    while(1)
+    for(;;)
     {
         fprintf(stdout, "\n%d-push,%d-pop,%d-unshift,%d-shift,%d-sraightInsert,%d-print,%d-exit:",
                             PUSH, POP, UNSHIFT, SHIFT, STRINS, PRINT, EXIT);
@@ -42,9 +42,13 @@ int main(int argc, char** argv) {
                         break;
             case POP:   res = pop(arr,&t);
                         if(res == -1)
+                        {
                           fprintf(stdout,"The array is empty!");
+                        }                        
                         else
+                        {
                           fprintf(stdout,"item:%d poped!\n ",t);
+                        }
                         break;
             case UNSHIFT: t = rand() % 100;
                           unshift(arr,t);
@@ -60,8 +64,13 @@ int main(int argc, char** argv) {
                             fprintf(stdout, "The array is empty\n");
                           }
                         break;
-            case STRINS: straightInsertion(arr);
-                         break;
+            }
+           if( opt == STRINS){
+                 straightInsertion(arr);
+            }
+
+           switch(opt){
+
             case PRINT: print(arr);
                         break;
             case EXIT: destroy(arr);
