@@ -64,8 +64,13 @@ int main(int argc, char** argv) {
                             fprintf(stdout, "The array is empty\n");
                           }
                         break;
-            case STRINS: straightInsertion(arr);
-                         break;
+            }
+           if( opt == STRINS){
+                 straightInsertion(arr);
+            }
+
+           switch(opt){
+
             case PRINT: print(arr);
                         break;
             case EXIT: destroy(arr);
